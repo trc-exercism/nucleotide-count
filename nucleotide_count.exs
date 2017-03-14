@@ -14,9 +14,12 @@ defmodule NucleotideCount do
   """
   @spec count([char], char) :: non_neg_integer
   def count(strand, nucleotide) do
-
+    _count(strand, nucleotide, 0)
   end
 
+  defp _count([], nucleotide, acc), do: acc
+  defp _count([h|t], nucleotide, acc) when h == nucleotide, do: _count(t, nucleotide, acc+1)
+  defp _count([h|t], nucleotide, acc) when h !== nucleotide, do: _count(t, nucleotide, acc)
 
   @doc """
   Returns a summary of counts by nucleotide.
