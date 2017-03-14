@@ -8,17 +8,17 @@ ExUnit.configure exclude: :pending, trace: true
 defmodule NucleotideCountTest do
   use ExUnit.Case
 
-  @tag :pending
+  # @tag :pending
   test "empty dna string has no adenine" do
     assert NucleotideCount.count('', ?A) == 0
   end
 
-  @tag :pending
+  # @tag :pending
   test "repetitive cytosine gets counted" do
     assert NucleotideCount.count('CCCCC', ?C) == 5
   end
 
-  @tag :pending
+  # @tag :pending
   test "counts only thymine" do
     assert NucleotideCount.count('GGGGGTAACCCGG', ?T) == 1
   end
